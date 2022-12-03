@@ -1,0 +1,8 @@
+# ignore virtual env
+venv
+
+# ignore pycache
+__pycache__
+
+# ignore database
+db.*
