@@ -19,6 +19,7 @@ from usuario_sistema.urls import usuario_sistema_urls
 from cliente.urls import cliente_urls
 from fornecedor.urls import fornecedor_urls
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(usuario_sistema_urls)),

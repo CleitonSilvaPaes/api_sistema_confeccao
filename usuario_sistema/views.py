@@ -9,10 +9,11 @@ from rest_framework.authtoken.views import ObtainAuthToken
 
 
 
-class UsuarioSistemaRegisterAPIView(generics.CreateAPIView):
+class UsuarioSistemaRegisterViewSet(viewsets.ModelViewSet):
     
     queryset = UsuarioSistema.objects.all()
     serializer_class = UsuarioSistemaSerializer
+    http_method_names = ['post',]
 
 class LoginViewSet(viewsets.ViewSet):
 

@@ -40,7 +40,7 @@ class FornecedorSerializer(serializers.ModelSerializer):
         user = self.context['request'].user
         user_sistema = UsuarioSistema(user=user)
         dados_pagamentos = DadosPagamentos.objects.filter(pix=pix)
-        
+               
         if dados_pagamentos == 0:
             dados_pagamentos = DadosPagamentos.objects.create(banco=banco, conta=conta, agencia=agencia, pix=pix)
         else:

@@ -8,7 +8,6 @@ class FornecedorViewSet(viewsets.ModelViewSet):
     
     permission_classes = [IsAuthenticated]   
     serializer_class = FornecedorSerializer
-    
     def get_queryset(self):
         user = self.request.user
         user_sistema = UsuarioSistema.objects.get(user=user)
