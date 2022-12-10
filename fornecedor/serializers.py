@@ -42,7 +42,7 @@ class FornecedorSerializer(serializers.ModelSerializer):
         dados_pagamentos = DadosPagamentos.objects.filter(pix=pix)
                
         if dados_pagamentos == 0:
-            dados_pagamentos = DadosPagamentos.objects.create(banco=banco, conta=conta, agencia=agencia, pix=pix)
+            pass
         else:
             msg['pix'] = 'Infelizmente, pix não aceito, digite outro'
             raise serializers.ValidationError(msg)
@@ -57,7 +57,11 @@ class FornecedorSerializer(serializers.ModelSerializer):
         telefone = validated_data.get('telefone')
         descricao = validated_data.get('descricao')
         user_sistema = validated_data.get('user_sistema')
-        dados_pagamentos = validated_data.get('dados_pagamentos')
+        banco = validated_data.get('banco', None)
+        conta = validated_data.get('conta', None)
+        agencia = validated_data.get('agencia', None)
+        pix = validated_data.get('pix')
+        dados_pagamentos = DadosPagamentos.objects.create(banco=banco, conta=conta, agencia=agencia, pix=pix)
         
         fornecedor = Fornecedor.objects.create(user_sistema=user_sistema, nome=nome, telefone=telefone, descricao=descricao, dados_pagamentos=dados_pagamentos)
         

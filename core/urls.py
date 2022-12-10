@@ -18,12 +18,12 @@ from django.urls import path, include
 from usuario_sistema.urls import usuario_sistema_urls
 from cliente.urls import cliente_urls
 from fornecedor.urls import fornecedor_urls
-
+from pedidos.urls import pedidos_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include(usuario_sistema_urls)),
     path('cliente/', include(cliente_urls)),
     path('fornecedor/', include(fornecedor_urls)),
-    
+    path('pedido/', include(pedidos_urls)),
 ]
